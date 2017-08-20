@@ -24,16 +24,19 @@ var cards = [
 ];
 
 var cardsInPlay = [];
+var score = 0;
 
 var checkForMatch = function() 
 {
 	 if (cardsInPlay[0] === cardsInPlay[1]) 
 	 {
-	      alert("You found a match!");
+	      score = score + 1;
+	      alert("You found a match! " + "Your current score is " + score);
 	 }
 	 else 
 	 {
-	      alert("Sorry, try again.");
+	      score = score - 1;
+	      alert("Sorry, try again. " + "Your current score is " + score);
 	 }
 }
 
