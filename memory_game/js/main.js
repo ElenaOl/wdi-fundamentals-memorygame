@@ -60,6 +60,18 @@ var flipCard = function()
 	}
 }
 
+function shuffle(a) 
+{
+    var j, x, i;
+    for (i = a.length; i; i--) 
+    {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+}
+
 var reset = function()
 {
   console.log('Hello I am reset');
@@ -69,6 +81,7 @@ var reset = function()
   	gameBoard.childNodes[i].setAttribute('src', 'images/back.png');
   }
   cardsInPlay = [];
+  shuffle(cards);
 }
 
 var createBoard = function()
@@ -86,3 +99,5 @@ var createBoard = function()
 }
 
 createBoard();
+shuffle(cards);
+
