@@ -25,18 +25,21 @@ var cards = [
 
 var cardsInPlay = [];
 var score = 0;
+var success = true;
 
 var checkForMatch = function() 
 {
 	 if (cardsInPlay[0] === cardsInPlay[1]) 
 	 {
-	      score = score + 1;
+	      score = score + 3;
 	      alert("You found a match! " + "Your current score is " + score);
+	      success = true;
 	 }
 	 else 
 	 {
 	      score = score - 1;
 	      alert("Sorry, try again. " + "Your current score is " + score);
+	      success = false;
 	 }
 }
 
@@ -62,6 +65,7 @@ var flipCard = function()
 
 function shuffle(a) 
 {
+	console.log("shuffling");
     var j, x, i;
     for (i = a.length; i; i--) 
     {
@@ -81,7 +85,11 @@ var reset = function()
   	gameBoard.childNodes[i].setAttribute('src', 'images/back.png');
   }
   cardsInPlay = [];
-  shuffle(cards);
+  
+  if (success === true)
+  {
+    shuffle(cards);
+  } 
 }
 
 var createBoard = function()
